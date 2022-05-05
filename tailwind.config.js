@@ -20,6 +20,23 @@ module.exports = {
             spacing: {
                 88: "22rem",
             },
+            width: {
+                18: "4.5rem"
+            },
+            keyframes: {
+                grow1: {
+                    '0%': { height: "50%" },
+                    '100%': { height: '83.333333%' },
+                  },
+                  grow2: {
+                    '0%': { height: "0%" },
+                    '100%': { height: '50%' }, 
+                  }
+            },
+            animation: {
+                grow1: 'grow1 0.15s linear 0s 1 both',
+                grow2: 'grow2 0.15s linear 0s 1 both',
+              }
         },
     },
     plugins: [],

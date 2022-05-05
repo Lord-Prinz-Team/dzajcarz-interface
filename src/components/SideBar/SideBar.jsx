@@ -5,7 +5,11 @@ import logo from "./../../logo2.png";
 
 const SideBar = () => {
 	const [contacts, setContacts] = useState([]);
+	const [active, setActive] = useState(0);
 
+	const changeActiveChat = (index) => {
+		setActive(index);
+	}
 	useEffect(() => {
 		const fetchData = async () => {
 			return fetch("http://localhost:4761/contacts");
@@ -17,23 +21,27 @@ const SideBar = () => {
 				if (data.status !== "success") {
 					return;
 				}
-				setContacts(data.data.contacts);
+				console.log(data);
+				setContacts(data.data.contacts.reverse());
 			});
 	}, []);
 
 	return (
 		<div
-			className="fixed top-0 left-0 h-screen w-16 flex flex-col
-                  bg-white dark:bg-gray-900 shadow-lg"
+			className="fixed top-0 left-0 h-screen w-18 flex flex-col
+            bg-white dark:bg-gray-900 shadow-lg overflow-y"
 		>
 			<SlideBarElement img={logo} />
 			<Divider />
-			{contacts.map((contact) => {
+			{contacts.map((contact, index) => {
 				return (
 					<SlideBarElement
+						url={`/chat/${contact.id}`}
 						img={contact.avatar}
-						text={contact.tag.split("#")[0]}
-						key={contact._id}
+						text={contact.username}
+						key={contact.id}
+						active={active === index}
+						onClick={changeActiveChat.bind(null, index)}
 					/>
 				);
 			})}
