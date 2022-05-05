@@ -21,22 +21,33 @@ module.exports = {
                 88: "22rem",
             },
             width: {
-                18: "4.5rem"
+                18: "4.5rem",
             },
+
             keyframes: {
                 grow1: {
-                    '0%': { height: "50%" },
-                    '100%': { height: '83.333333%' },
-                  },
-                  grow2: {
-                    '0%': { height: "0%" },
-                    '100%': { height: '50%' }, 
-                  }
+                    "0%": { height: "50%" },
+                    "100%": { height: "83.333333%" },
+                },
+                grow2: {
+                    "0%": { height: "0%" },
+                    "100%": { height: "50%" },
+                },
+                decrease1: {
+                    "0%": { height: "83.333333%" },
+                    "100%": { height: "50%" },
+                },
+                decrease2: {
+                    "0%": { height: "50%" },
+                    "100%": { height: "0%" },
+                },
             },
             animation: {
-                grow1: 'grow1 0.15s linear 0s 1 both',
-                grow2: 'grow2 0.15s linear 0s 1 both',
-              }
+                grow1: "grow1 0.15s linear 0s 1 both",
+                grow2: "grow2 0.15s linear 0s 1 both",
+                decrease1: "decrease2 0.15s linear 0s 1 both",
+                decrease2: "decrease2 0.15s linear 0s 1 both",
+            },
         },
     },
     plugins: [],

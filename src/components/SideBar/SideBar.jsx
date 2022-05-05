@@ -5,14 +5,14 @@ import logo from "./../../logo2.png";
 
 const SideBar = () => {
 	const [contacts, setContacts] = useState([]);
-	const [active, setActive] = useState(0);
+	const [active, setActive] = useState("main");
 
 	const changeActiveChat = (index) => {
 		setActive(index);
-	}
+	};
 	useEffect(() => {
 		const fetchData = async () => {
-			return fetch("http://localhost:4761/contacts");
+			return await fetch("http://localhost:4761/contacts");
 		};
 
 		fetchData()
@@ -29,9 +29,15 @@ const SideBar = () => {
 	return (
 		<div
 			className="fixed top-0 left-0 h-screen w-18 flex flex-col
-            bg-white dark:bg-gray-900 shadow-lg overflow-y"
+            bg-white dark:bg-gray-900 shadow-lg overflow-y "
 		>
-			<SlideBarElement img={logo} />
+			<SlideBarElement
+				img={logo}
+				text="Strona główna"
+				active={active === "main"}
+				url={"/"}
+				onClick={changeActiveChat.bind(null, "main")}
+			/>
 			<Divider />
 			{contacts.map((contact, index) => {
 				return (
@@ -46,7 +52,13 @@ const SideBar = () => {
 				);
 			})}
 			<Divider />
-			<SlideBarElement icon={<BsGearFill size="22" />} text="Ustawienia" />{" "}
+			<SlideBarElement
+				icon={<BsGearFill size="22" />}
+				text="Ustawienia"
+				url={"/settings"}
+				active={active === "settings"}
+				onClick={changeActiveChat.bind(null, "settings")}
+			/>
 		</div>
 	);
 };
