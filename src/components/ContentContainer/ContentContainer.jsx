@@ -2,12 +2,13 @@ import TopNavigation from "../TopNavigation/TopNavigation";
 import { BsPlusCircleFill } from "react-icons/bs";
 // import { useState } from 'react';
 
-const ContentContainer = () => {
+const ContentContainer = (props) => {
+
 	return (
 		<div className="content-container">
 			<TopNavigation />
 			<div className="content-list">
-				<Post
+				{/* <Post
 					name="Ada"
 					timestamp="one week ago"
 					text={`Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit
@@ -58,7 +59,7 @@ const ContentContainer = () => {
           amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur
           adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
           ipsum dolor sit amet consectetur adipisicing elit.`}
-				/>
+				/> */}
 			</div>
 			<BottomBar />
 		</div>
@@ -102,7 +103,7 @@ const Post = ({ name, timestamp, text }) => {
 const PlusIcon = () => (
 	<BsPlusCircleFill
 		size="22"
-		className="text-green-500 dark:shadow-lg mx-2 dark:text-primary"
+		className="text-gray-400 dark:shadow-lg mx-2 dark:text-primary cursor-pointer"
 	/>
 );
 

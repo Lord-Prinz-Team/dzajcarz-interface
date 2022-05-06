@@ -21,7 +21,6 @@ const SideBar = () => {
 				if (data.status !== "success") {
 					return;
 				}
-				console.log(data);
 				setContacts(data.data.contacts.reverse());
 			});
 	}, []);

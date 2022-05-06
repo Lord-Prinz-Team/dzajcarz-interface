@@ -16,9 +16,9 @@ const SideBarElement = ({ img, text, icon, active, onClick, url }) => {
 				text ? "" : "rounded-xl"
 			} select-none rounded-xl after:bg-white after:h-full after:scale-y-0 after:-left-4 after:top-1/2 after:-translate-y-1/2 after:w-1/6 after:absolute after:rounded-xl after:transition-transform  ${
 				active
-					? "after:animate-grow1 rounded-xl after:scale-y-100 hover:after:scale-y-100 after:transition-transform bg-green-500 text-white"
+					? "after:animate-grow1 rounded-xl after:scale-y-100 hover:after:scale-y-100 after:transition-transform dark:bg-green-600 text-white"
 					: "hover:after:scale-y-50 rounded-3xl hover:after:transition-transform"
-			} `}
+			} hover:bg-green-600`}
 			onClick={onClick}
 		>
 			{img && (
