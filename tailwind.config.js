@@ -25,28 +25,21 @@ module.exports = {
             },
 
             keyframes: {
-                grow1: {
-                    "0%": { height: "50%" },
-                    "100%": { height: "83.333333%" },
-                },
-                grow2: {
-                    "0%": { height: "0%" },
-                    "100%": { height: "50%" },
-                },
-                decrease1: {
-                    "0%": { height: "83.333333%" },
-                    "100%": { height: "50%" },
-                },
-                decrease2: {
-                    "0%": { height: "50%" },
-                    "100%": { height: "0%" },
+                fadeAway: {
+                    "0%": {
+                        opacity: 1,
+                        transform: "scale(1)",
+                        cursor: "pointer",
+                    },
+                    "100%": {
+                        opacity: 0,
+                        transform: "scale(3)",
+                        cursor: "auto",
+                    },
                 },
             },
             animation: {
-                grow1: "grow1 0.15s linear 0s 1 both",
-                grow2: "grow2 0.15s linear 0s 1 both",
-                decrease1: "decrease2 0.15s linear 0s 1 both",
-                decrease2: "decrease2 0.15s linear 0s 1 both",
+                fadeAway: "fadeAway 0.5s linear 0s 1 both",
             },
         },
     },

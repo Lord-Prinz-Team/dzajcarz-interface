@@ -7,7 +7,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	font-family: 'Lato';
+	font-family: "Lato";
 }
 
 @layer components {
@@ -21,7 +21,7 @@
 		@apply bg-gray-200 dark:bg-gray-800 border border-gray-200 dark:border-gray-800 rounded-full mx-2;
 	}
 	.top-navigation {
-		@apply flex flex-row items-center justify-evenly bg-gray-300 dark:bg-gray-700 bg-opacity-90 w-full h-16 m-0 shadow-lg;
+		@apply flex flex-row items-center justify-evenly bg-gray-300 dark:bg-gray-700 bg-opacity-90 w-[calc(100%-4.5rem)] z-20 h-16 m-0 shadow-lg;
 	}
 	.top-navigation-icon {
 		@apply text-gray-400 mr-3 ml-4 transition duration-300 ease-in-out hover:text-pink-400 cursor-pointer;
@@ -45,28 +45,28 @@
 		@apply flex flex-1 flex-col bg-gray-300 dark:bg-gray-700 m-0 overflow-hidden;
 	}
 	.content-list {
-		@apply flex flex-col items-center h-full w-full mt-0 ml-0 mx-auto px-0 pb-12 overflow-y-scroll;
+		@apply flex flex-col items-center h-full w-full ml-0 mx-auto px-0 py-12 mt-9 my-5 overflow-y-auto;
 	}
 	.post {
-		@apply w-full flex flex-row items-center justify-evenly py-4 px-8 m-0 cursor-pointer;
+		@apply w-full flex flex-row items-center pb-4 pt-3 px-8 m-0 hover:bg-gray-800 transition-all duration-75 hover:transition-all hover:duration-75 my-1;
 	}
 	.post-selected {
 		@apply bg-green-400 dark:bg-gray-900 shadow-md;
 	}
 	.post-content {
-		@apply w-4/5 flex flex-col justify-start ml-auto;
+		@apply w-4/5 flex flex-col justify-start ml-4;
 	}
 	.post-text {
 		@apply text-lg text-left text-gray-800 dark:text-white mr-auto whitespace-normal;
 	}
 	.post-owner {
-		@apply text-left font-semibold text-gray-800 dark:text-white mr-2 cursor-pointer;
+		@apply text-left font-semibold text-gray-800 dark:text-white mr-2;
 	}
 	.avatar-wrapper {
-		@apply flex flex-col items-center w-12 m-0 ml-auto mb-auto;
+		@apply flex flex-col items-center m-0 ml-12  mb-auto;
 	}
 	.avatar {
-		@apply flex-none w-12 h-full rounded-full shadow-md object-cover bg-gray-100 mb-auto mt-0 mx-0 cursor-pointer;
+		@apply flex-none w-12 h-full rounded-full shadow-md object-cover bg-gray-100 mb-auto mt-0 mx-0;
 	}
 	.timestamp {
 		@apply text-xs text-left font-semibold text-gray-500 dark:text-gray-600 ml-2;

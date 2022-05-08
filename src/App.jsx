@@ -3,7 +3,13 @@ import ContentContainer from "./components/ContentContainer/ContentContainer";
 import Home from "./components/Home/Home";
 import Settings from "./components/Settings/Settings";
 import SideBar from "./components/SideBar/SideBar";
+import { io } from "socket.io-client";
 
+const socket = io("ws://localhost:2137");
+
+socket.emit("hello from client", 5, "6", { 7: Uint8Array.from([8]) });
+
+socket.on("hello from server", (...args) => {});
 function App() {
 	return (
 		<div className="flex min-h-screen">
@@ -12,9 +18,9 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="chat">
-					<Route path=":chatId" element={<ContentContainer/>}/>
+					<Route path=":chatId" element={<ContentContainer />} />
 				</Route>
-				<Route path="settings" element={<Settings/>}/>
+				<Route path="settings" element={<Settings />} />
 			</Routes>
 		</div>
 	);

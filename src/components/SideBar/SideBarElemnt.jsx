@@ -8,7 +8,6 @@ const SideBarElement = ({ img, text, icon, active, onClick, url }) => {
 			navigate(url);
 		}
 	}, []);
-
 	return (
 		<Link
 			to={url ?? ""}
@@ -23,11 +22,7 @@ const SideBarElement = ({ img, text, icon, active, onClick, url }) => {
 		>
 			{img && (
 				<img
-					src={
-						img.includes("null.webp")
-							? "https://media.discordapp.net/attachments/657658801863917568/971879142310182982/default.png"
-							: img
-					}
+					src={img}
 					alt={`${text} profile picture`}
 					className={`sidebar-icon  ${text ? "" : "rounded-xl"} hover:bg-green-600 ${
 						active ? "rounded-xl" : ""
