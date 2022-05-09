@@ -12,6 +12,7 @@ const Input = (props) => {
 				updateContent(e.target.value);
 			}}
 			value={props.value}
+			autoFocus
 		/>
 	);
 };

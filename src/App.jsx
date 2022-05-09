@@ -5,15 +5,12 @@ import Settings from "./components/Settings/Settings";
 import SideBar from "./components/SideBar/SideBar";
 import { io } from "socket.io-client";
 
-const socket = io("ws://localhost:2137");
+// const socket = io("ws://localhost:2137");
 
-socket.emit("hello from client", 5, "6", { 7: Uint8Array.from([8]) });
-
-socket.on("hello from server", (...args) => {});
 function App() {
 	return (
 		<div className="flex min-h-screen">
-			<SideBar />
+			<SideBar/>
 			<div className="w-18"></div>
 			<Routes>
 				<Route path="/" element={<Home />} />

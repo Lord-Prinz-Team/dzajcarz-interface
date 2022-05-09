@@ -6,7 +6,7 @@ const ContentContainer = () => {
 	return (
 		<div className="content-container">
 			<TopNavigation />
-			<Chat />
+			<Chat/>
 			<BottomBar />
 		</div>
 	);

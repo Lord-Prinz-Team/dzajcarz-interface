@@ -4,6 +4,7 @@ import SlideBarElement from "./SideBarElemnt";
 import logo from "./../../logo2.png";
 
 const SideBar = () => {
+
 	const [contacts, setContacts] = useState([]);
 	const [active, setActive] = useState("main");
 
