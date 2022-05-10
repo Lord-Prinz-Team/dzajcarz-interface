@@ -48,7 +48,7 @@
 		@apply flex flex-col items-center h-full w-full ml-0 mx-auto px-0 py-12 mt-9 my-5 overflow-y-auto;
 	}
 	.post {
-		@apply w-full flex flex-row items-center pb-4 pt-3 px-8 m-0 hover:bg-gray-800 transition-all duration-75 hover:transition-all hover:duration-75 my-1;
+		@apply w-full flex flex-row items-center pb-4 pt-3 px-8 m-0 hover:bg-gray-750 transition-all duration-75 hover:transition-all hover:duration-75 my-1;
 	}
 	.post-selected {
 		@apply bg-green-400 dark:bg-gray-900 shadow-md;

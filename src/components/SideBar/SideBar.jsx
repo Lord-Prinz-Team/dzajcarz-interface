@@ -4,9 +4,8 @@ import SlideBarElement from "./SideBarElemnt";
 import logo from "./../../logo2.png";
 
 const SideBar = () => {
-
 	const [contacts, setContacts] = useState([]);
-	const [active, setActive] = useState("main");
+	const [active, setActive] = useState();
 
 	const changeActiveChat = (index) => {
 		setActive(index);

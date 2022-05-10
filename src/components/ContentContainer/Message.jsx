@@ -1,5 +1,5 @@
-import { useMemo } from "react";
 import ImageAttachment from "../Attachments/ImageAttachment";
+import OtherAttachment from "../Attachments/OtherAttachment";
 import VideoAttachment from "../Attachments/VideoAttachment";
 
 const Message = ({
@@ -17,6 +17,7 @@ const Message = ({
 		"video/ogg",
 	];
 
+	const AUDIO_FORMAT = [];
 	const chooseCorrectDateForm = (timestamp) => {
 		const date = new Date(timestamp);
 		const currentDate = new Date();
@@ -49,6 +50,15 @@ const Message = ({
 		return `${day}.${month}.${year}`;
 	};
 
+	const urlify = (text) => {
+		const urlRegex = /(https?:\/\/[^\s]+)/g;
+		return text.replace(urlRegex, (url) => {
+			return `<a href="'${url}'">'${url}'</a>`;
+		})
+		// or alternatively
+		// return text.replace(urlRegex, '<a href="$1">$1</a>')
+	}	
+
 	return (
 		<>
 			<div className={"post select-text"}>
@@ -65,7 +75,7 @@ const Message = ({
 						{username}
 						<small className="timestamp">{chooseCorrectDateForm(timestamp)}</small>
 					</p>
-					<p className="post-text">{textContent}</p>
+					<p className="post-text">{urlify(textContent)}</p>
 					{attachments.lenth === 0
 						? ""
 						: attachments.map((attachment) => {
@@ -90,6 +100,12 @@ const Message = ({
 										/>
 									);
 								}
+
+								if(AUDIO_FORMAT.includes(attachment.contentType)) {
+
+								}
+
+								return <OtherAttachment name={attachment.name} size={attachment.size} key={attachment._id} url={attachment.url}/>
 						  })}
 				</div>
 			</div>
