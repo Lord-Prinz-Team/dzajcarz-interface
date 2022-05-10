@@ -1,3 +1,4 @@
+import AudioAttachment from "../Attachments/AudioAttachment";
 import ImageAttachment from "../Attachments/ImageAttachment";
 import OtherAttachment from "../Attachments/OtherAttachment";
 import VideoAttachment from "../Attachments/VideoAttachment";
@@ -17,7 +18,8 @@ const Message = ({
 		"video/ogg",
 	];
 
-	const AUDIO_FORMAT = [];
+	const AUDIO_FORMAT = ["audio/mpeg"];
+
 	const chooseCorrectDateForm = (timestamp) => {
 		const date = new Date(timestamp);
 		const currentDate = new Date();
@@ -100,9 +102,13 @@ const Message = ({
 										/>
 									);
 								}
-
 								if(AUDIO_FORMAT.includes(attachment.contentType)) {
-
+									return <AudioAttachment
+										name={attachment.name}
+										size={attachment.size}
+										key={attachment._id}
+										url={attachment.url}
+									/>
 								}
 
 								return <OtherAttachment name={attachment.name} size={attachment.size} key={attachment._id} url={attachment.url}/>
