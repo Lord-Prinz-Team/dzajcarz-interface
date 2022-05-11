@@ -3,6 +3,7 @@ import {
   BsDownload,
   BsFillPlayFill,
   BsFillPauseFill,
+  BsArrowRepeat,
 } from "react-icons/bs";
 import { useRef, useState } from "react";
 
@@ -12,7 +13,11 @@ const AudioAttachment = ({ name, size, url }) => {
   };
 
   const audio = useRef();
+  const seek = useRef();
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isEnded, setIsEnded] = useState(false);
+  const [maxTime, setMaxTime] = useState("0:00");
+  const [currentTime, setCurrentTime] = useState("0:00");
 
   const swapPlayingState = () => {
     setIsPlaying((state) => {
@@ -22,6 +27,7 @@ const AudioAttachment = ({ name, size, url }) => {
 
   const play = () => {
     audio.current.play();
+    setIsEnded(false);
   };
 
   const pause = () => {
@@ -37,6 +43,11 @@ const AudioAttachment = ({ name, size, url }) => {
 
     play();
     swapPlayingState();
+  };
+
+  const EndedMusicHandler = () => {
+    swapPlayingState();
+    setIsEnded(true);
   };
 
   const fileSize = size ?? "unknown";
@@ -55,6 +66,13 @@ const AudioAttachment = ({ name, size, url }) => {
       return `${Math.ceil(value / (1000 * 1000))} MB`;
     }
     return `${Math.ceil(value / (1000 * 1000 * 1000))} GB`;
+  };
+
+  const calculateTime = (secs) => {
+    const minutes = Math.floor(secs / 60);
+    const seconds = Math.floor(secs % 60);
+    const returnedSeconds = seconds < 10 ? `0${seconds}` : `${seconds}`;
+    return `${minutes}:${returnedSeconds}`;
   };
 
   return (
@@ -83,7 +101,13 @@ const AudioAttachment = ({ name, size, url }) => {
         </div>
       </div>
       <div>
-        {isPlaying ? (
+        {isEnded ? (
+          <BsArrowRepeat
+            size="32"
+            className="text-gray-400  mx-2 dark:text-primary cursor-pointer"
+            onClick={AudioPlayHandler}
+          />
+        ) : isPlaying ? (
           <BsFillPauseFill
             size="32"
             className="text-gray-400  mx-2 dark:text-primary cursor-pointer"
@@ -96,9 +120,14 @@ const AudioAttachment = ({ name, size, url }) => {
             onClick={AudioPlayHandler}
           />
         )}
-        <audio ref={audio}>
+
+        <audio ref={audio} onEnded={EndedMusicHandler}>
           <source src={url} />
         </audio>
+        <span>{currentTime}</span>
+        <span>/</span>
+        <span>{maxTime}</span>
+        <input type="range" ref={seek} />
       </div>
     </div>
   );
