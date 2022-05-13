@@ -9,6 +9,7 @@ module.exports = {
                 gray: {
                     900: "#202225",
                     800: "#2f3136",
+                    750: "#303237",
                     700: "#36393f",
                     600: "#4f545c",
                     400: "#d4d7dc",
@@ -23,7 +24,7 @@ module.exports = {
             width: {
                 18: "4.5rem",
             },
-
+            
             keyframes: {
                 fadeAway: {
                     "0%": {
