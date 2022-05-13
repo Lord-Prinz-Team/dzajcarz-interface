@@ -5,9 +5,7 @@ import Settings from "./components/Settings/Settings";
 import SideBar from "./components/SideBar/SideBar";
 import { io } from "socket.io-client";
 import NewConversation from "./components/SideBar/NewConversation";
-
 // const socket = io("ws://localhost:2137");
-
 function App() {
   return (
     <div className="flex min-h-screen">
