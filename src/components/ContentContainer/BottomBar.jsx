@@ -57,7 +57,7 @@ const BottomBar = () => {
 	};
 
 	return (
-		<div className="fixed bg-gray-700 bottom-0 w-full h-12">
+		<div className="fixed bg-gray-700 bottom-0 w-full h-16">
 			<form className="bottom-bar select-none" onSubmit={submitHandler}>
 				<PlusIcon />
 				<Input onType={saveText} value={content} />

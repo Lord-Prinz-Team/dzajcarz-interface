@@ -31,7 +31,7 @@ const SideBarElement = ({ img, text, icon, active, onClick, url }) => {
 			)}
 			{icon && icon}
 			{text && (
-				<div className="sidebar-tooltip group-hover:scale-100 text-sm">
+				<div className="sidebar-tooltip group-hover:scale-100 text-sm z-50">
 					<div className="after:w-2 after:h-2 after:bg-gray-900 after:-left-4 after:translate-y-full after:rotate-45 after:absolute relative">
 						{text}
 					</div>

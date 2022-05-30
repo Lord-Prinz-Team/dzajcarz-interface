@@ -51,7 +51,7 @@ const Chat = () => {
 
         return (
           <>
-            {isSameDay && <Divider timestamp={message.timestamp} />}
+            {isSameDay && <Divider timestamp={message.timestamp} key={index} />}
             <Message
               key={message._id}
               isLastMessage={index === messagesAmount - 1}
