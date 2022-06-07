@@ -1,5 +1,5 @@
 import { BsGearFill, BsJournalPlus } from "react-icons/bs";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import SlideBarElement from "./SideBarElemnt";
 import logo from "./../../logo2.png";
 

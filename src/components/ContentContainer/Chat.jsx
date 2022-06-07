@@ -10,6 +10,21 @@ const Chat = () => {
 	const [messages, setMessages] = useState([]);
 	const [messagesAmount, setMessagesAmount] = useState();
 
+	const isSameDate = (date1, date2) => {
+		const d1 = new Date(date1);
+		const d2 = new Date(date2);
+
+		const day1 = d1?.getDate();
+		const month1 = d1?.getMonth();
+		const year1 = d1?.getFullYear();
+
+		const day2 = d2?.getDate();
+		const month2 = d2?.getMonth();
+		const year2 = d2?.getFullYear();
+
+		return day1 === day2 && month1 === month2 && year1 === year2;
+	};
+
 	useEffect(() => {
 		const fetchData = async () => {
 			return await fetch(`http://localhost:4761/chat/${id}`);
@@ -37,6 +52,12 @@ const Chat = () => {
 			}
 			setMessages((prevState) => [...prevState, message]);
 			setMessagesAmount((prevState) => prevState + 1);
+
+			if (message.chat === id) {
+				return;
+			}
+
+			console.log(message.author.tag);
 		});
 
 		return () => {
@@ -64,9 +85,9 @@ const Chat = () => {
 				isSameNextUser = nextUser === messages[index].author._id;
 
 				currentMessageDate = message.timestamp;
-				nextDate = messages[index + 1]?.timestamp;
+				nextDate = messages[index - 1]?.timestamp;
 
-				isSameDay = nextDate - currentMessageDate > 60 * 36000;
+				isSameDay = !isSameDate(currentMessageDate, nextDate);
 
 				return (
 					<>

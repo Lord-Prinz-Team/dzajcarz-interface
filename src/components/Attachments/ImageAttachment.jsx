@@ -23,10 +23,9 @@ const ImageAttachment = (props) => {
 			{isFullMode && (
 				<Modal src={props.src} onClick={updateFullModeHandler}>
 					<img
+						className="max-w-3xl max-h-3xl"
 						src={props.src}
 						alt={props.name}
-						width={props.width}
-						height={props.height}
 						{...props}
 					/>
 				</Modal>

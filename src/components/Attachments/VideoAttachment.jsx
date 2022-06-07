@@ -52,16 +52,15 @@ const VideoAttachment = (props) => {
 				{...props}
 				ref={video}
 				onClick={videoPlayHandler}
+				controls
 			>
 				<source src={props.src} />
 			</video>{" "}
-			{/* <PauseIcon />
-			<PlayIcon /> */}
-			{isPlaying ? (
+			{/* {isPlaying ? (
 				<PauseIconCircle onClick={props.onClick} videoPlayHandler={videoPlayHandler} />
 			) : (
 				<PlayIconCircle onClick={props.onClick} videoPlayHandler={videoPlayHandler} />
-			)}
+			)} */}
 			{/* {isHovered && <ControlBar />} */}
 		</div>
 	);
@@ -107,7 +106,12 @@ const PauseIconCircle = (props) => {
 };
 
 const ControlBar = (props) => {
-	return <div className="h-9 w-full bg-slate-100 absolute bottom-0"></div>;
+	return (
+		<div className="h-9 w-full bg-slate-100 absolute bottom-0">
+			<PauseIcon />
+			<PlayIcon />
+		</div>
+	);
 };
 
 export default VideoAttachment;
